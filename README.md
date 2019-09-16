@@ -3,7 +3,7 @@
 > /!\ Due to a bug in FFmpeg, this script currently has major drawbacks: since it needs to upsample then downsample the pixel format (yuv420 -> yuv444 -> yuv422), colors aren't preserved as well as they should be.
 
 
-Defishy uses [vid.stab](https://github.com/georgmartius/vid.stab) and [FFmpeg](https://ffmpeg.org/) to both stabilize videos shot with a GoPro Hero 3, and remove the fish-eye effect. [Ninja](https://ninja-build.org/) is used as a build tool to paralellize the calls to ffmpeg.
+Defishy uses [vid.stab](https://github.com/georgmartius/vid.stab) and [FFmpeg](https://ffmpeg.org/) to both stabilize videos shot with a GoPro Hero 3, and remove the fish-eye effect. [Ninja](https://ninja-build.org/) is used as a build tool to paralellize the calls to FFmpeg.
 
 Defishy is a Python library providing a context manager. With this infrastructure, it's super easy to describe what you want:
 ```python3
@@ -14,9 +14,9 @@ with Builder() as b:
     b.stabilize("GOPR0037.MP4")
     b.stabilize("GOPR0038.MP4", "-t 00:12")
     b.lenscorrect("GOPR0047.MP4", "-ss 00:10")
-``
+```
 
-The previous Python script will generate a `build.ninja`file. You may analyze its content, and then run `ninja` to process the videos. They will end up in the `processed_dnxhr` directory.
+The previous Python script will generate a `build.ninja` file. You may analyze its content, and then run `ninja` to process the videos. They will end up in the `processed_dnxhr` directory.
 
 * "GOPR0037.MP4" will be stabilized and defisheyed
 * the first 12s of "GOPR0038.MP4" will be stabilized and defisheyed
