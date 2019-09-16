@@ -41,7 +41,7 @@ python3 -m pip install --user .
 
 ## Technical details
 
-Defishy uses FFmpeg's [`lenscorrection`](https://ffmpeg.org/ffmpeg-filters.html#lenscorrection) filter to remove the fish-eye distorsion. This filter takes two parameters: `k1` and `k2`. The scripts in `research/` were used to find the optimal `k1` and `k2` parameters. The `genhtml` script gives you the opportunity to view all the generated images arranged in lines and columns corresponding to the values of `k1` and `k2`: simply open the generated html file in your browser to view the image grid.
+Defishy uses FFmpeg's [`lenscorrection`](https://ffmpeg.org/ffmpeg-filters.html#lenscorrection) filter to remove the fish-eye distorsion. This filter takes two parameters: `k1` and `k2`. The scripts in `research/` were used to find the optimal `k1` and `k2` parameters. First add an image to test (called `base.jpg`), then run `test_coefs.py` to generate images with different values of `k1`and `k2`. The `genhtml.py` script gives you the opportunity to view all the generated images arranged in lines and columns corresponding to the values of `k1` and `k2`: simply open the generated html file in your browser to view the images in a grid.
 
 Ultimately, for my GoPro 3 Silver Edition:
 
